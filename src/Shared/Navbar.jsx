@@ -29,7 +29,7 @@ const navItem=(
 
 
 { isAdmin &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
-      <NavLink to="/assetList" className="text-sm font-semibold md:mr-6">Asset List</NavLink>
+      <NavLink to="/assetsList" className="text-sm font-semibold md:mr-6">Asset List</NavLink>
       <NavLink to="/addAssets" className="text-sm font-semibold md:mr-6">Add Asset</NavLink>
       <NavLink to="/allRequest" className="text-sm font-semibold md:mr-6">All Requests</NavLink>
       <NavLink to="/myEmployees" className="text-sm font-semibold md:mr-6">My Employees</NavLink>

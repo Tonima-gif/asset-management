@@ -8,6 +8,7 @@ import Home from "./Home";
 import JoinAsHr from "../Auth/JoinAsHr";
 import AddAssets from "./AddAssets";
 import Private from "../Shared/Private";
+import AssetsList from "./AssetsList";
 
 
  export const router = createBrowserRouter([
@@ -31,9 +32,14 @@ import Private from "../Shared/Private";
             path:"registerAsHr",
             element:<JoinAsHr></JoinAsHr>
         },
+        // admin access
         {
             path:"addAssets",
             element:<Private><AddAssets></AddAssets></Private>
+        },
+        {
+            path:"assetsList",
+            element:<Private><AssetsList></AssetsList></Private>
         },
       ]
     },
