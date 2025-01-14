@@ -9,7 +9,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import GoogleLogin from "../Shared/GoogleLogin";
 const Register = () => {
 
-const {SignUp,updateUserProfile}=useContext(AuthContext);
+const {SignUp,updateUserProfile,setUser}=useContext(AuthContext);
 const navigate = useNavigate();
 const axiosPublic=useAxiosPublic();
 
@@ -48,8 +48,9 @@ const user={name,email}
 //      })
 //    }
 SignUp(email,password)
-.then(async()=>{
+.then(async(res)=>{
  await updateUserProfile(name,photo)
+ setUser({...res , displayName:name ,photoURL : photo})
   .then(async()=>{
 await axiosPublic.post("/users",user)
 .then((res)=>{

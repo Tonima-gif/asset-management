@@ -11,7 +11,7 @@ const About = () => {
     return (
         <div>
             <h1 className="text-4xl font-bold text-purple-950 py-10 text-center">About Information</h1>
-            <div className='w-9/12 mx-auto h-96 border-2 p-8 rounded-lg overflow-y-scroll'>
+            <div className='w-9/12 mx-auto h-[490px] border-2 p-8 rounded-lg overflow-y-scroll'>
 
 <h1 className="text-xl font-bold text-gray-900 py-3">About Us</h1>
 <p className="text-base text-gray-500 font-semibold">Welcome to [Your Company Name], your trusted partner in comprehensive asset management solutions. Our mission is to empower organizations by managing and optimizing their valuable assets efficiently, ensuring peak performance and long-term sustainability.</p>
@@ -48,7 +48,7 @@ We’re here to help you unlock the full potential of your assets. Let’s grow 
         centeredSlides={true}
         slidesPerView={'auto'}
         coverflowEffect={{
-          rotate: 50,
+          rotate: 20,
           stretch: 0,
           depth: 100,
           modifier: 1,
