@@ -6,6 +6,8 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import Home from "./Home";
 import JoinAsHr from "../Auth/JoinAsHr";
+import AddAssets from "./AddAssets";
+import Private from "../Shared/Private";
 
 
  export const router = createBrowserRouter([
@@ -28,6 +30,10 @@ import JoinAsHr from "../Auth/JoinAsHr";
         {
             path:"registerAsHr",
             element:<JoinAsHr></JoinAsHr>
+        },
+        {
+            path:"addAssets",
+            element:<Private><AddAssets></AddAssets></Private>
         },
       ]
     },

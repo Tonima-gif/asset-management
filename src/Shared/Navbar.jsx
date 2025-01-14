@@ -4,11 +4,12 @@ import { AuthContext } from "../Auth/AuthProvider";
 import Swal from "sweetalert2";
 import logo from "../assets/assets/logo.png"
 import "../App.css"
+import useIsAdmin from "../Hooks/useIsAdmin";
 const Navbar = () => {
 
   const {user,handleSignOut}=useContext(AuthContext)
 const navigate =useNavigate()
-
+const [isAdmin]=useIsAdmin()
 const handleLogOutBtn=()=>{
   handleSignOut()
   .then(()=>{
@@ -25,16 +26,30 @@ const handleLogOutBtn=()=>{
 
 const navItem=(
     <>
-    {user?<><NavLink to="/" className="text-base font-semibold md:mr-6">Home</NavLink>
-      <NavLink to="/myAssets" className="text-base font-semibold md:mr-6">My assets</NavLink>
-      <NavLink to="/myTeam" className="text-base font-semibold md:mr-6">My Team</NavLink>
-      <NavLink to="/myRequest" className="text-base font-semibold md:mr-6">Requests</NavLink>
-      <NavLink to="/myProfile" className="text-base font-semibold md:mr-6">Profile</NavLink>
-    </>:<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
+
+
+{ isAdmin &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
+      <NavLink to="/assetList" className="text-sm font-semibold md:mr-6">Asset List</NavLink>
+      <NavLink to="/addAssets" className="text-sm font-semibold md:mr-6">Add Asset</NavLink>
+      <NavLink to="/allRequest" className="text-sm font-semibold md:mr-6">All Requests</NavLink>
+      <NavLink to="/myEmployees" className="text-sm font-semibold md:mr-6">My Employees</NavLink>
+      <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
+    </>}
+{user && isAdmin==false &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
+      <NavLink to="/myAssets" className="text-sm font-semibold md:mr-6">My assets</NavLink>
+      <NavLink to="/myTeam" className="text-sm font-semibold md:mr-6">My Team</NavLink>
+      <NavLink to="/myRequest" className="text-sm font-semibold md:mr-6">Requests</NavLink>
+      <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
+    </>}
+
+
+    {!user&&<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
       <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
       <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
       <NavLink to="/login" className="text-base font-semibold">Login</NavLink>
     </>}
+
+
     </>
 )
 
@@ -73,8 +88,9 @@ const navItem=(
   </div>
   <div className="navbar-end">
    {user?<>
-   <img referrerPolicy="no-referrer" className="w-12 h-12 object-cover rounded-full" src={user?.photoURL} alt="" />
-    <button onClick={handleLogOutBtn} className="btn">Log-out</button>
+   <small className="text-sm font-semibold underline text-purple-800">{user?.displayName}</small>
+   <img referrerPolicy="no-referrer" className="w-12 h-12 mx-2 object-cover rounded-full" src={user?.photoURL} alt="" />
+    <button onClick={handleLogOutBtn} className="btn btn-info sm:btn-sm bg-purple-400">Log-out</button>
    </>:<>
    </>
    }

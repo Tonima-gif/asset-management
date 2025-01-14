@@ -14,12 +14,12 @@ const handleGoogleSignUp =()=>{
     handleGoogleSignIn()
     .then((res)=>{
         console.log(res);
-        const user={
-            name:res?.user.displayName,
-            email:res?.user.email,
-            role:user
+        const userInfo={
+            name:res?.user?.displayName,
+            email:res?.user?.email,
+            role:"user"
         }
-        axiosPublic.post("/users",user)
+        axiosPublic.post("/users",userInfo)
         .then((res)=>{
             console.log("google to add user ==>",res.data);
             Swal.fire({

@@ -10,12 +10,11 @@ const location =useLocation()
 const {user ,loading}=useContext(AuthContext)
 
 if(loading) return <Loading></Loading>
+
 if(!user)return <Navigate state={{from:location.pathname}} to="/login"></Navigate>
+    
+return children
 
-
-else{
-    return children
-}
 
 };
 

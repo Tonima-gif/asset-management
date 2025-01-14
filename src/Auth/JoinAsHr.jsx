@@ -12,7 +12,6 @@ const JoinAsHr = () => {
     const {SignUp,updateUserProfile}=useContext(AuthContext);
     const navigate = useNavigate();
     const axiosPublic=useAxiosPublic();
-    
     const handleRegisterToHR = (e) =>{
     e.preventDefault()
     const form = e.target
@@ -31,7 +30,6 @@ const JoinAsHr = () => {
       .then(async()=>{
     await axiosPublic.post("/hrAdmin",userInfo)
     .then((res)=>{
-      console.log(res.data);
       if(res.data?.insertedId){
         Swal.fire({
           title: 'Register Successfully Complete!',

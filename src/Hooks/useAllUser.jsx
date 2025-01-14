@@ -7,7 +7,7 @@ const useAllUser = () => {
    const {data : allUsers =[]}=useQuery({
     queryKey:["allUsers"],
     queryFn:async()=>{
-        const res = await axiosSecure.get("/allUsers")
+        const res = await axiosSecure.get("/allUser")
         return res.data
     }
    })
