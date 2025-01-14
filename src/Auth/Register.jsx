@@ -21,7 +21,7 @@ const name = form.name.value
 const photo = form.photo.value
 const email = form.email.value
 const password = form.password.value
-const user={name,email}
+const user={name,email,role:"user"}
 // if(password.length<6){
 //     return Swal.fire({
 //        title: 'Something wrong!',

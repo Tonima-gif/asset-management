@@ -31,8 +31,8 @@ const navItem=(
       <NavLink to="/myRequest" className="text-base font-semibold md:mr-6">Requests</NavLink>
       <NavLink to="/myProfile" className="text-base font-semibold md:mr-6">Profile</NavLink>
     </>:<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
-      <NavLink to="/joinEmployee" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
-      <NavLink to="/joinHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
+      <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
+      <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
       <NavLink to="/login" className="text-base font-semibold">Login</NavLink>
     </>}
     </>

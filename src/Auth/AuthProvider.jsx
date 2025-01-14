@@ -72,7 +72,8 @@ const authInfo={
     handleGoogleSignIn,
     handleSignIn,
     handleSignOut,
-    updateUserProfile
+    updateUserProfile,
+    setUser
 }
 
 

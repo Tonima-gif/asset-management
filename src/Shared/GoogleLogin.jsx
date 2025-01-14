@@ -16,7 +16,8 @@ const handleGoogleSignUp =()=>{
         console.log(res);
         const user={
             name:res?.user.displayName,
-            email:res?.user.email
+            email:res?.user.email,
+            role:user
         }
         axiosPublic.post("/users",user)
         .then((res)=>{
