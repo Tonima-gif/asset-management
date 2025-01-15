@@ -9,7 +9,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import GoogleLogin from "../Shared/GoogleLogin";
 const Register = () => {
 
-const {SignUp,updateUserProfile,setUser}=useContext(AuthContext);
+const {SignUp,updateUserProfile}=useContext(AuthContext);
 const navigate = useNavigate();
 const axiosPublic=useAxiosPublic();
 
@@ -17,11 +17,11 @@ const handleRegister = (e) =>{
 e.preventDefault()
 const form = e.target
 const name = form.name.value
-// const birth = form.birth.value
+const birth = form.birth.value
 const photo = form.photo.value
 const email = form.email.value
 const password = form.password.value
-const user={name,email,role:"user"}
+const user={name,email,photo,birth,companyLogo:"hrCompany",companyName:"hrCompanyName",role:"user"}
 // if(password.length<6){
 //     return Swal.fire({
 //        title: 'Something wrong!',
@@ -48,9 +48,8 @@ const user={name,email,role:"user"}
 //      })
 //    }
 SignUp(email,password)
-.then(async(res)=>{
+.then(async()=>{
  await updateUserProfile(name,photo)
- setUser({...res , displayName:name ,photoURL : photo})
   .then(async()=>{
 await axiosPublic.post("/users",user)
 .then((res)=>{

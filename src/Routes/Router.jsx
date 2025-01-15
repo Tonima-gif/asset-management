@@ -9,6 +9,8 @@ import JoinAsHr from "../Auth/JoinAsHr";
 import AddAssets from "./AddAssets";
 import Private from "../Shared/Private";
 import AssetsList from "./AssetsList";
+// import AdminPrivate from "../Shared/AdminPrivate";
+import Payment from "./Payment";
 
 
  export const router = createBrowserRouter([
@@ -40,6 +42,10 @@ import AssetsList from "./AssetsList";
         {
             path:"assetsList",
             element:<Private><AssetsList></AssetsList></Private>
+        },
+        {
+            path:"payment",
+            element:<Private><Payment></Payment></Private>
         },
       ]
     },

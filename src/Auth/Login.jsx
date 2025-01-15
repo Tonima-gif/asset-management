@@ -3,7 +3,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import bg from "../assets/assets/authentication.png"
 import login from "../assets/assets/authentication2.png"
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
 import GoogleLogin from "../Shared/GoogleLogin";
@@ -12,7 +12,7 @@ import GoogleLogin from "../Shared/GoogleLogin";
 const Login = () => {
     const {handleSignIn}=useContext(AuthContext)
     const navigate = useNavigate()
-
+const location=useLocation()
 const captchaRef =useRef(null);
 const [disabled ,setDisabled]=useState(true)
 
@@ -39,6 +39,8 @@ const form = e.target
 const email = form.email.value
 const password = form.password.value
 
+const navigation=location.state?.form?.pathName || "/";
+
 handleSignIn(email,password)
 .then(()=>{
     Swal.fire({
@@ -47,7 +49,7 @@ handleSignIn(email,password)
         icon: 'success',
         confirmButtonText: 'okay'
       })
-   navigate("/") 
+   navigate(navigation) 
 })
 .catch(err=>{
     Swal.fire({

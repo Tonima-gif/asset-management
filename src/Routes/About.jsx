@@ -59,10 +59,10 @@ We’re here to help you unlock the full potential of your assets. Let’s grow 
         className="mySwiper"
       >
         <SwiperSlide>
-         <div className='bg-purple-300 border w-[400px] rounded-xl py-12'>
+         <div className='bg-purple-300 border md:w-[400px] rounded-xl py-12'>
             <img className='mx-auto' src="https://img.icons8.com/?size=50&id=11220&format=png" alt="" />
-            <h1 className='text-3xl font-bold text-center py-5 text-black'>5 Members</h1>
-            <p className='text-lg font-semibold text-center text-gray-800'>$ 5</p>
+            <h1 className='text-3xl font-bold text-center py-5 text-black'>Maximum 5 employees</h1>
+            <p className='text-xl font-semibold text-center text-gray-800'>$ 5</p>
          </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -71,8 +71,8 @@ We’re here to help you unlock the full potential of your assets. Let’s grow 
         <img src="https://img.icons8.com/?size=50&id=11220&format=png" alt="" />
         <img src="https://img.icons8.com/?size=50&id=11220&format=png" alt="" />
         </div>
-            <h1 className='text-3xl font-bold text-center py-5 text-black'>10 Members</h1>
-            <p className='text-lg font-semibold text-center text-gray-800'>$ 8</p>
+            <h1 className='text-3xl font-bold text-center py-5 text-black'>Maximum 10 employees</h1>
+            <p className='text-xl font-semibold text-center text-gray-800'>$ 8</p>
          </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -82,8 +82,8 @@ We’re here to help you unlock the full potential of your assets. Let’s grow 
         <img src="https://img.icons8.com/?size=50&id=11220&format=png" alt="" />
         <img src="https://img.icons8.com/?size=50&id=11220&format=png" alt="" />
         </div>
-            <h1 className='text-3xl font-bold text-center py-5 text-black'>20 Members</h1>
-            <p className='text-lg font-semibold text-center text-gray-800'>$ 15</p>
+            <h1 className='text-3xl font-bold text-center py-5 text-black'>Maximum 20 employees</h1>
+            <p className='text-xl font-semibold text-center text-gray-800'>$ 15</p>
          </div>
         </SwiperSlide>
 

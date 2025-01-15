@@ -23,21 +23,23 @@ const JoinAsHr = () => {
     const pack= parseInt(form.pack.value)
     const email = form.email.value
     const password = form.password.value
-    const userInfo={name,email,companyName,companyLogo,birth,pack,role:"HrAdmin"}
+    const userInfo={name,email,companyName,companyLogo,birth,pack,role:"user"}
+   console.log(userInfo);
     SignUp(email,password)
     .then(async()=>{
      await updateUserProfile(name,photo)
       .then(async()=>{
-    await axiosPublic.post("/hrAdmin",userInfo)
+    await axiosPublic.post("/users",userInfo)
     .then((res)=>{
       if(res.data?.insertedId){
-        Swal.fire({
-          title: 'Register Successfully Complete!',
-          text: `Now you are HR Manager in ${companyName} company`,
-          icon: 'success',
-          confirmButtonText: 'okay'
-        })
-     navigate("/") 
+    //     Swal.fire({
+    //       title: 'Register Successfully Complete!',
+    //       text: `Now you are HR Manager in ${companyName} company`,
+    //       icon: 'success',
+    //       confirmButtonText: 'okay'
+    //     })
+    //  navigate("/") 
+    navigate('/payment')
       }
     })
     .catch(err=>{
@@ -139,7 +141,7 @@ const JoinAsHr = () => {
          </select>
          </div>
   </div>
-         <input type="submit" className="btn w-full bg-orange-700/60 text-white font-bold mt-4" value="Sign Up" />
+  <input type="submit" className="btn w-full bg-orange-700/60 text-white font-bold mt-4" value="Sign Up" />
               </form>
               <p className="text-orange-700/60 font-semibold text-base text-center">Already Registered !! Go to <Link to="/login" className="text-black underline">Login</Link></p>
               
