@@ -3,29 +3,27 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useOneHr from "../Hooks/useOneHr";
 import { AuthContext } from "../Auth/AuthProvider";
-import { useNavigate } from "react-router-dom";
-import useIsAdmin from "../Hooks/useIsAdmin";
+// import { useNavigate } from "react-router-dom";
+// import useIsAdmin from "../Hooks/useIsAdmin";
 
 
 
-const CheckOutForm = () => {
+const AddEmployee = () => {
 const stripe =useStripe()
 const elements =useElements()
 const [error ,setError]=useState('')
 const [client ,setClient]=useState('')
-// const [member ,setMember]=useState(0)
+const [member ,setMember]=useState()
 const axiosSecure =useAxiosSecure()
-const [oneHr]=useOneHr()
+const [oneHr,refetch]=useOneHr()
 const {user} =useContext(AuthContext)
-const [ , ,refetch]=useIsAdmin()
-const navigate =useNavigate()
-const dollarMony=oneHr?.pack
+// const [ , ,refetch]=useIsAdmin()
+// const navigate =useNavigate()
+// const dollarMony=oneHr?.pack
 useEffect(()=>{ 
-const dollar=oneHr?.pack
 
-if(dollar>0){
-  console.log(typeof(dollar))
-  axiosSecure.post('/create-payment-intent', {price :dollar})
+if(member>0){
+  axiosSecure.post('/create-payment-intent', {price :member})
   .then(res=>{
    console.log(res.data?.clientSecret)
    setClient(res.data?.clientSecret)
@@ -33,24 +31,8 @@ if(dollar>0){
   )
 }
 
-},[axiosSecure ,oneHr?.pack])
+},[axiosSecure ,oneHr?.pack,member])
 
-
-// useEffect(()=>{
-// const packageMoney =oneHr?.pack
-// if(packageMoney <0){
-//   return console.log("package is 0" , packageMoney);
-// }
-// if(packageMoney==5){
-//  return setMember(5)
-// }
-// if(packageMoney==8){
-//   return setMember(10)
-// }
-// if(packageMoney==15){
-//   return setMember(20)
-// }
-// },[oneHr?.pack])
 
 const handleSubmit=async(e)=>{
     e.preventDefault();
@@ -92,16 +74,40 @@ const handleSubmit=async(e)=>{
     console.log("conform err" ,confirmErr);
    }
    else{
-    axiosSecure.patch(`/hrRoleUpdate/${user?.email}`)
-    .then(()=>{
-      refetch()
- navigate('/')
+    axiosSecure.put(`/memberUpdate/${user?.email}?member=${member}`)
+    .then((res)=>{
+        console.log(res.data);
+//       refetch()
+//  navigate('/')
     })
    console.log("payment intent",paymentIntent);
    }
 }
 
+const handleMember = (money)=>{
+    const payMoney =parseInt(money)
+    console.log(member , payMoney)
+    setMember(payMoney)
+    refetch()
+}
+
+
     return (
+       <div>
+        <div className="pt-28">
+            <h1 className="text-3xl font-bold text-center mb-8 btn bg-purple-100">Please Pay $ {member}</h1>
+        </div>
+        <div className="form-control md:w-1/2 my-5">
+         <label className="label"> <span className="label-text font-bold">Select a Package</span>
+         </label>
+         <select onChange={(e)=>handleMember(e.target.value)} className="input input-bordered" required>
+            <option value="0">Select a package</option>
+            <option value="5">5 Members for $5</option>
+            <option value="8">10 Members for $8</option>
+            <option value="15">20 Members for $15</option>
+         </select>
+         </div>
+        <div>
         <form onSubmit={handleSubmit}>
       <CardElement
         options={{
@@ -119,12 +125,15 @@ const handleSubmit=async(e)=>{
           },
         }}
       />
-      <button className="btn btn-sm btn-success my-6" type="submit" disabled={!stripe || !client ||dollarMony<0}>
+      <button className="btn btn-sm btn-success my-6" type="submit" disabled={!stripe || !client ||member==0}>
         Pay
       </button>
       <p className="text-sm text-red-600 font-semibold">{error}</p>
     </form>
+        </div>
+       </div>
     );
 };
 
-export default CheckOutForm;
+
+export default AddEmployee;

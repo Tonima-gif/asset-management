@@ -8,7 +8,7 @@ const useOneHr = () => {
     const {user}=useContext(AuthContext)
 const axiosSecure=useAxiosSecure()
 
-const {data:oneHr}=useQuery({
+const {data:oneHr,refetch}=useQuery({
     queryKey:[user?.email ,'hr'],
     queryFn:async()=>{
         const res =await axiosSecure.get(`/hr/${user?.email}`)
@@ -16,7 +16,7 @@ const {data:oneHr}=useQuery({
 
     }
 })
-return [oneHr]
+return [oneHr,refetch]
 };
 
 export default useOneHr;

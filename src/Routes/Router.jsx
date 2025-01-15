@@ -9,8 +9,10 @@ import JoinAsHr from "../Auth/JoinAsHr";
 import AddAssets from "./AddAssets";
 import Private from "../Shared/Private";
 import AssetsList from "./AssetsList";
-// import AdminPrivate from "../Shared/AdminPrivate";
+import AdminPrivate from "../Shared/AdminPrivate";
 import Payment from "./Payment";
+import Allrequests from "./Allrequests";
+import AddAmount from "./AddAmount";
 
 
  export const router = createBrowserRouter([
@@ -37,11 +39,19 @@ import Payment from "./Payment";
         // admin access
         {
             path:"addAssets",
-            element:<Private><AddAssets></AddAssets></Private>
+            element:<Private><AdminPrivate><AddAssets></AddAssets></AdminPrivate></Private>
         },
         {
             path:"assetsList",
-            element:<Private><AssetsList></AssetsList></Private>
+            element:<Private><AdminPrivate><AssetsList></AssetsList></AdminPrivate></Private>
+        },
+        {
+            path:"allRequests",
+            element:<Private><AdminPrivate><Allrequests></Allrequests></AdminPrivate></Private>
+        },
+        {
+            path:"addEmployee",
+            element:<Private><AdminPrivate><AddAmount></AddAmount></AdminPrivate></Private>
         },
         {
             path:"payment",

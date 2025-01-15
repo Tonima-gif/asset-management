@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import register from "../assets/assets/authentication.gif"
 import bg from "../assets/assets/authentication.png"
-import { useContext } from "react";
+import { useContext ,useState } from "react";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
@@ -12,6 +12,7 @@ const JoinAsHr = () => {
     const {SignUp,updateUserProfile}=useContext(AuthContext);
     const navigate = useNavigate();
     const axiosPublic=useAxiosPublic();
+    const [selectMember,setSelectMember]=useState()
     const handleRegisterToHR = (e) =>{
     e.preventDefault()
     const form = e.target
@@ -23,7 +24,7 @@ const JoinAsHr = () => {
     const pack= parseInt(form.pack.value)
     const email = form.email.value
     const password = form.password.value
-    const userInfo={name,email,companyName,companyLogo,birth,pack,role:"user"}
+    const userInfo={name,email,companyName,companyLogo,birth,pack,role:"user",addMember:selectMember}
    console.log(userInfo);
     SignUp(email,password)
     .then(async()=>{
@@ -59,6 +60,13 @@ const JoinAsHr = () => {
     
     
     }
+
+
+    const handleMemberAdd = (money)=>{
+      const payMoney =parseInt(money)
+      setSelectMember(payMoney)
+  }
+
 
 
     return (
@@ -133,7 +141,7 @@ const JoinAsHr = () => {
           <div className="form-control md:w-1/2">
          <label className="label"> <span className="label-text font-bold">Select a Package</span>
          </label>
-         <select name="pack" className="input input-bordered" required>
+         <select name="pack" onChange={(e)=>handleMemberAdd(e.target.value)} className="input input-bordered" required>
             <option value="">Select a package</option>
             <option value="5">5 Members for $5</option>
             <option value="8">10 Members for $8</option>

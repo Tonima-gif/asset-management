@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 
 const AdminPrivate = ({children}) => {
     const{user,loading}=useContext(AuthContext)
-    const [isAdminLoading,isAdmin]=useIsAdmin()
+    const [isAdmin ,isAdminLoading]=useIsAdmin()
     if(loading || isAdminLoading) return <Loading></Loading>
 
 if(!user || !isAdmin)return <Navigate to="/login"></Navigate>

@@ -31,8 +31,9 @@ const navItem=(
 { isAdmin &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
       <NavLink to="/assetsList" className="text-sm font-semibold md:mr-6">Asset List</NavLink>
       <NavLink to="/addAssets" className="text-sm font-semibold md:mr-6">Add Asset</NavLink>
-      <NavLink to="/allRequest" className="text-sm font-semibold md:mr-6">All Requests</NavLink>
+      <NavLink to="/allRequests" className="text-sm font-semibold md:mr-6">All Requests</NavLink>
       <NavLink to="/myEmployees" className="text-sm font-semibold md:mr-6">My Employees</NavLink>
+      <NavLink to="/addEmployee" className="text-sm font-semibold md:mr-6">Add Employee</NavLink>
       <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
     </>}
 {user && isAdmin==false &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
