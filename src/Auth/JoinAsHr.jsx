@@ -32,12 +32,12 @@ const JoinAsHr = () => {
     await axiosPublic.post("/users",userInfo)
     .then((res)=>{
       if(res.data?.insertedId){
-    //     Swal.fire({
-    //       title: 'Register Successfully Complete!',
-    //       text: `Now you are HR Manager in ${companyName} company`,
-    //       icon: 'success',
-    //       confirmButtonText: 'okay'
-    //     })
+        Swal.fire({
+          title: 'Register Successfully Complete!',
+          text: `Now pay amount to become HR Manager in ${companyName} company`,
+          icon: 'success',
+          confirmButtonText: 'okay'
+        })
     //  navigate("/") 
     navigate('/payment')
       }

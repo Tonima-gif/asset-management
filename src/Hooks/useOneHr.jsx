@@ -13,6 +13,7 @@ const {data:oneHr}=useQuery({
     queryFn:async()=>{
         const res =await axiosSecure.get(`/hr/${user?.email}`)
         return res?.data
+
     }
 })
 return [oneHr]
