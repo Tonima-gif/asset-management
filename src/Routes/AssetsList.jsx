@@ -4,7 +4,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { format } from "date-fns";
 const AssetsList = () => {
 const {user}=useContext(AuthContext)
 const axiosSecure = useAxiosSecure()
@@ -108,7 +108,7 @@ const handleDeleteAssets=(idToDelete)=>{
   {assets.map(asset=><div key={asset._id} className="bg-white shadow-xl p-5 rounded-lg">
   <div>
     <img className="w-28 h-28 object-cover mb-4" src={asset.productPhoto} alt="" />
-    <div className="flex flex-col border-t-4  md:flex-row  gap-10">
+    <div className="flex flex-col border-t-4 py-4 border-b-4  md:flex-row  gap-10">
      <div>
         <p className="text-base font-bold my-2">Name : </p>
         <p className="text-base font-bold my-2">Type : </p>
@@ -119,7 +119,7 @@ const handleDeleteAssets=(idToDelete)=>{
       <h2 className="text-base font-bold my-2">{asset.productName}</h2>
     <p className="text-base font-bold my-2">{asset.productType}</p>
     <p className="text-base font-bold my-2">{asset.productQuantity}</p>
-    <p className="text-base font-bold my-2">22/22/2222</p>
+    <p className="text-base font-bold my-2">{format(asset.date,'dd-MM-yyyy')}</p>
       </div>
      </div>
     <div className="mt-4">

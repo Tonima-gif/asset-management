@@ -83,7 +83,7 @@ const handleSubmit=async(e)=>{
                       icon: 'success',
                       confirmButtonText: 'okay'
                     })
- navigate('/')
+ navigate('/addEmployee')
     })
    console.log("payment intent",paymentIntent);
    }

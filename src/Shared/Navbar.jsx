@@ -36,14 +36,19 @@ const navItem=(
       <NavLink to="/addEmployee" className="text-sm font-semibold md:mr-6">Add Employee</NavLink>
       <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
     </>}
-{user && isAdmin==false &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
+{/* {isEmploye &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
       <NavLink to="/myAssets" className="text-sm font-semibold md:mr-6">My assets</NavLink>
       <NavLink to="/myTeam" className="text-sm font-semibold md:mr-6">My Team</NavLink>
       <NavLink to="/myRequest" className="text-sm font-semibold md:mr-6">Requests</NavLink>
       <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
-    </>}
+    </>} */}
 
 
+    {user&& isAdmin==false?<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
+      <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
+      <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
+      <NavLink to="/login" className="text-base font-semibold">Login</NavLink>
+    </>:<></>}
     {!user&&<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
       <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
       <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
@@ -80,7 +85,9 @@ const navItem=(
        {navItem}
       </ul>
     </div>
-   <img className="w-32 object-cover" src={logo} alt="" />
+  <button>
+ {user&&isAdmin==false?<p title="Logo set after your HR accepts you" className="bg-gray-200 w-20 h-10 rounded-lg"><span className="loading loading-ring loading-xs mt-3"></span></p>:<img className="w-32 object-cover" src={logo} alt="" />}
+  </button>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

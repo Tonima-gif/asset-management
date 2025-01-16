@@ -12,8 +12,9 @@ import AssetsList from "./AssetsList";
 import AdminPrivate from "../Shared/AdminPrivate";
 import Payment from "./Payment";
 import Allrequests from "./Allrequests";
-import AddAmount from "./AddAmount";
 import UpdateAsset from "./UpdateAsset";
+import AddMoreEmployee from "./AddMoreEmployee";
+import AddAmount from "./AddAmount";
 
 
  export const router = createBrowserRouter([
@@ -52,6 +53,10 @@ import UpdateAsset from "./UpdateAsset";
         },
         {
             path:"addEmployee",
+            element:<Private><AdminPrivate><AddMoreEmployee></AddMoreEmployee></AdminPrivate></Private>
+        },
+        {
+            path:"increaseLimit",
             element:<Private><AdminPrivate><AddAmount></AddAmount></AdminPrivate></Private>
         },
         {
