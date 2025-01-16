@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useOneHr from "../Hooks/useOneHr";
 import { AuthContext } from "../Auth/AuthProvider";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import useIsAdmin from "../Hooks/useIsAdmin";
 
 
@@ -11,14 +11,15 @@ import { AuthContext } from "../Auth/AuthProvider";
 const AddEmployee = () => {
 const stripe =useStripe()
 const elements =useElements()
+const [oneHr,refetch]=useOneHr()
 const [error ,setError]=useState('')
 const [client ,setClient]=useState('')
+const setCount=parseInt(oneHr?.addMember)
 const [member ,setMember]=useState()
 const axiosSecure =useAxiosSecure()
-const [oneHr,refetch]=useOneHr()
 const {user} =useContext(AuthContext)
 // const [ , ,refetch]=useIsAdmin()
-// const navigate =useNavigate()
+const navigate =useNavigate()
 // const dollarMony=oneHr?.pack
 useEffect(()=>{ 
 
@@ -31,7 +32,7 @@ if(member>0){
   )
 }
 
-},[axiosSecure ,oneHr?.pack,member])
+},[axiosSecure,member])
 
 
 const handleSubmit=async(e)=>{
@@ -77,18 +78,21 @@ const handleSubmit=async(e)=>{
     axiosSecure.put(`/memberUpdate/${user?.email}?member=${member}`)
     .then((res)=>{
         console.log(res.data);
-//       refetch()
-//  navigate('/')
+      refetch()
+ navigate('/')
     })
    console.log("payment intent",paymentIntent);
    }
 }
 
 const handleMember = (money)=>{
-    const payMoney =parseInt(money)
-    console.log(member , payMoney)
-    setMember(payMoney)
-    refetch()
+  if(setCount>0){
+    setMember(setCount)
+  }
+    const setPack=parseInt(member+money)
+    setMember(setPack)
+
+    // refetch()
 }
 
 
