@@ -101,7 +101,7 @@ const handleMember = (money)=>{
     return (
        <div>
         <div className="pt-28">
-            <h1 className="text-3xl font-bold text-center mb-8 btn bg-purple-100">If you want to increase your package limit Please pay !!</h1>
+            <h1 className="text-3xl font-bold text-center mb-8 btn bg-purple-100">If you want to increase your package limit... Please pay !!</h1>
         </div>
         <div className="form-control md:w-1/2 my-5">
          <label className="label"> <span className="label-text font-bold">Select a Package</span>
