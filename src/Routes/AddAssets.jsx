@@ -5,11 +5,12 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 const AddAssets = () => {
     const {user}=useContext(AuthContext)
     const axiosSecure=useAxiosSecure()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date());
 
 const handleAddAssets = (e)=>{
@@ -23,16 +24,15 @@ const date= startDate
 
 
 const asset={productName,productPhoto,productQuantity,productType,date ,requestNo:0,addHrEmail:user?.email,addHrPhoto:user?.photoURL,addHrName:user?.displayName}
-console.log(asset);
 axiosSecure.post('/addAsset',asset)
 .then(()=>{
+  navigate("/assetsList") 
     Swal.fire({
         title: 'Asset successfully added!',
         text: 'asset added to mongodb',
         icon: 'success',
         confirmButtonText: 'okay'
       })
-  //  navigate("/") 
 })
 .catch(err=>{
     Swal.fire({

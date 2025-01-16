@@ -13,6 +13,7 @@ import AdminPrivate from "../Shared/AdminPrivate";
 import Payment from "./Payment";
 import Allrequests from "./Allrequests";
 import AddAmount from "./AddAmount";
+import UpdateAsset from "./UpdateAsset";
 
 
  export const router = createBrowserRouter([
@@ -52,6 +53,10 @@ import AddAmount from "./AddAmount";
         {
             path:"addEmployee",
             element:<Private><AdminPrivate><AddAmount></AddAmount></AdminPrivate></Private>
+        },
+        {
+          path:"/update/:id",
+          element:<Private><AdminPrivate><UpdateAsset></UpdateAsset></AdminPrivate></Private>
         },
         {
             path:"payment",
