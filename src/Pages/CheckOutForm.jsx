@@ -5,6 +5,7 @@ import useOneHr from "../Hooks/useOneHr";
 import { AuthContext } from "../Auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import useIsAdmin from "../Hooks/useIsAdmin";
+import Swal from "sweetalert2";
 
 
 
@@ -95,6 +96,12 @@ const handleSubmit=async(e)=>{
     axiosSecure.patch(`/hrRoleUpdate/${user?.email}`)
     .then(()=>{
       refetch()
+      Swal.fire({
+                title: 'Payment Successfully Done!',
+                text: `Now you are HR .`,
+                icon: 'success',
+                confirmButtonText: 'okay'
+              })
  navigate('/')
     })
    console.log("payment intent",paymentIntent);

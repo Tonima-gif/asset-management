@@ -61,13 +61,18 @@ const JoinAsHr = () => {
     
     }
 
-
-    const handleMemberAdd = (money)=>{
-      const payMoney =parseInt(money)
-      setSelectMember(payMoney)
-  }
-
-
+const handleCount=(pack)=>{
+  if(pack==5){
+    return setSelectMember(5)
+   }
+   if(pack==8){
+    return setSelectMember(10)
+   }
+   if(pack==15){
+    return setSelectMember(20)
+   }
+   console.log(pack,selectMember);
+}
 
     return (
         <div style={{backgroundImage:`url("${bg}")`}}>
@@ -141,7 +146,7 @@ const JoinAsHr = () => {
           <div className="form-control md:w-1/2">
          <label className="label"> <span className="label-text font-bold">Select a Package</span>
          </label>
-         <select name="pack" onChange={(e)=>handleMemberAdd(e.target.value)} className="input input-bordered" required>
+         <select name="pack" onChange={e=>handleCount(e.target.value)} className="input input-bordered" required>
             <option value="">Select a package</option>
             <option value="5">5 Members for $5</option>
             <option value="8">10 Members for $8</option>

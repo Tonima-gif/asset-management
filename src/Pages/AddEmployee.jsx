@@ -4,7 +4,8 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useOneHr from "../Hooks/useOneHr";
 import { AuthContext } from "../Auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
-// import useIsAdmin from "../Hooks/useIsAdmin";
+import Swal from "sweetalert2";
+
 
 
 
@@ -15,24 +16,21 @@ const [oneHr,refetch]=useOneHr()
 const [error ,setError]=useState('')
 const [client ,setClient]=useState('')
 const setCount=parseInt(oneHr?.addMember)
-const [member ,setMember]=useState()
+const [member ,setMember]=useState(0)
 const axiosSecure =useAxiosSecure()
 const {user} =useContext(AuthContext)
-// const [ , ,refetch]=useIsAdmin()
 const navigate =useNavigate()
-// const dollarMony=oneHr?.pack
 useEffect(()=>{ 
-
+  refetch()
 if(member>0){
   axiosSecure.post('/create-payment-intent', {price :member})
   .then(res=>{
-   console.log(res.data?.clientSecret)
    setClient(res.data?.clientSecret)
   }
   )
 }
 
-},[axiosSecure,member])
+},[axiosSecure,member,refetch])
 
 
 const handleSubmit=async(e)=>{
@@ -79,6 +77,12 @@ const handleSubmit=async(e)=>{
     .then((res)=>{
         console.log(res.data);
       refetch()
+       Swal.fire({
+                      title: 'Payment Successfully Done!',
+                      text: `Package limit increased.`,
+                      icon: 'success',
+                      confirmButtonText: 'okay'
+                    })
  navigate('/')
     })
    console.log("payment intent",paymentIntent);
@@ -86,20 +90,18 @@ const handleSubmit=async(e)=>{
 }
 
 const handleMember = (money)=>{
-  if(setCount>0){
-    setMember(setCount)
-  }
-    const setPack=parseInt(member+money)
-    setMember(setPack)
-
-    // refetch()
+  refetch()
+  const moneyChange=parseInt(setCount)
+  const moneyChange2=parseInt(money)
+  const count=moneyChange+moneyChange2
+  setMember(count)
 }
 
 
     return (
        <div>
         <div className="pt-28">
-            <h1 className="text-3xl font-bold text-center mb-8 btn bg-purple-100">Please Pay $ {member}</h1>
+            <h1 className="text-3xl font-bold text-center mb-8 btn bg-purple-100">If you want to increase your package limit Please pay !!</h1>
         </div>
         <div className="form-control md:w-1/2 my-5">
          <label className="label"> <span className="label-text font-bold">Select a Package</span>
@@ -107,8 +109,8 @@ const handleMember = (money)=>{
          <select onChange={(e)=>handleMember(e.target.value)} className="input input-bordered" required>
             <option value="0">Select a package</option>
             <option value="5">5 Members for $5</option>
-            <option value="8">10 Members for $8</option>
-            <option value="15">20 Members for $15</option>
+            <option value="10">10 Members for $8</option>
+            <option value="20">20 Members for $15</option>
          </select>
          </div>
         <div>

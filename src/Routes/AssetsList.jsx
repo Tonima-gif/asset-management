@@ -1,11 +1,28 @@
 
+import { useContext, useState } from "react";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const AssetsList = () => {
+const {user}=useContext(AuthContext)
+const axiosSecure = useAxiosSecure()
+const [assets ,setAssets]=useState([]);
+
+
+
+axiosSecure.get(`/asset/${user?.email}`)
+.then(res=>{
+setAssets(res.data)
+})
+.catch(err=>{
+  console.log(err);
+})
+
     return (
         <div>
             <div className=" pt-28 pb-2 mb-14 lg:mx-10 flex flex-col sm:gap-y-4 md:flex-row justify-between items-center bg-white shadow-sm ">
 
-            <h1 className="text-3xl font-bold">Asset Lists</h1>
+            <h1 className="text-3xl font-bold">Asset Lists : {assets.length}</h1>
             <div className="lg:w-2/5">
           <input type="search" name="search" placeholder="Search" className="input input-bordered lg:w-full"/>
             </div>
@@ -42,16 +59,16 @@ const AssetsList = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>laptop</td>
-        <td>22</td>
-        <td>11/22/2022</td>
+      {assets.map((asset,index)=><tr key={asset._id}>
+        <th>{index+1}</th>
+        <td>{asset.productName}</td>
+        <td>{asset.productType}</td>
+        <td>{asset.productQuantity}</td>
+        <td>{asset.date}</td>
         <td>U</td>
         <td>X</td>
-      </tr>
+      </tr>)}
+      
     </tbody>
   </table>
 </div>

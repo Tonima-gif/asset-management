@@ -1,15 +1,14 @@
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import bg from "../assets/assets/authentication.png"
 import { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
-
-
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AddAssets = () => {
     const {user}=useContext(AuthContext)
+    const axiosSecure=useAxiosSecure()
     // const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date());
 
@@ -23,26 +22,26 @@ const productType= form.productType.value
 const date= startDate
 
 
-const asset={productName,productPhoto,productQuantity,productType,date ,addHrEmail:user?.email,addHrPhoto:user?.photoURL}
+const asset={productName,productPhoto,productQuantity,productType,date ,requestNo:0,addHrEmail:user?.email,addHrPhoto:user?.photoURL,addHrName:user?.displayName}
 console.log(asset);
-// handleSignIn(email,password)
-// .then(()=>{
-//     Swal.fire({
-//         title: 'Login Successfully Complete!',
-//         text: 'Welcome Back',
-//         icon: 'success',
-//         confirmButtonText: 'okay'
-//       })
-//    navigate("/") 
-// })
-// .catch(err=>{
-//     Swal.fire({
-//         title: `${err.message}`,
-//         text: 'something went wrong',
-//         icon: 'error',
-//         confirmButtonText: 'Try Again'
-//       })
-// })
+axiosSecure.post('/addAsset',asset)
+.then(()=>{
+    Swal.fire({
+        title: 'Asset successfully added!',
+        text: 'asset added to mongodb',
+        icon: 'success',
+        confirmButtonText: 'okay'
+      })
+  //  navigate("/") 
+})
+.catch(err=>{
+    Swal.fire({
+        title: `${err.message}`,
+        text: 'something went wrong',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+      })
+})
 }
 
 
