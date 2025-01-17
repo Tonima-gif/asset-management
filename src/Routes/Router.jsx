@@ -16,6 +16,10 @@ import UpdateAsset from "./UpdateAsset";
 import AddMoreEmployee from "./AddMoreEmployee";
 import AddAmount from "./AddAmount";
 import MyEmployee from "./MyEmployee";
+import MyRequests from "../Pages/MyRequests";
+import MyTeam from "../Pages/MyTeam";
+import MyAssets from "../Pages/MyAssets";
+import PrintPage from "./PrintPage";
 
 
  export const router = createBrowserRouter([
@@ -71,6 +75,22 @@ import MyEmployee from "./MyEmployee";
         {
             path:"payment",
             element:<Private><Payment></Payment></Private>
+        },
+        {
+          path:'requestAnAsset',
+          element:<Private><MyRequests></MyRequests></Private>
+        },
+        {
+          path:'requestedAssets',
+          element:<Private><MyAssets></MyAssets></Private>
+        },
+        {
+          path:'print',
+          element:<Private><PrintPage></PrintPage></Private>
+        },
+        {
+          path:'sameTeamMember',
+          element:<Private><MyTeam></MyTeam></Private>
         },
       ]
     },

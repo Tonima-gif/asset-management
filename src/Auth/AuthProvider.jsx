@@ -33,6 +33,7 @@ const handleSignIn = (email,password) =>{
 
 
 const handleSignOut = () =>{
+    setLoading(true)
  return signOut(auth)
 
 }
@@ -58,9 +59,9 @@ axiosPublic.post("/jwt",userEmail)
     if(res?.data?.token){
         localStorage.setItem("access-token",res?.data?.token)
     }
+    setLoading(false)
 }) 
 }  
-   
 else{
         localStorage.removeItem("access-token")
         setUser(null)

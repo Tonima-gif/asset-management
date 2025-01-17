@@ -5,11 +5,24 @@ import Swal from "sweetalert2";
 import logo from "../assets/assets/logo.png"
 import "../App.css"
 import useIsAdmin from "../Hooks/useIsAdmin";
+import useEmployee from "../Hooks/useEmployee";
+import Loading from "./Loading";
+import useOneEmployee from "../Hooks/useOneEmployee";
 const Navbar = () => {
 
   const {user,handleSignOut}=useContext(AuthContext)
 const navigate =useNavigate()
-const [isAdmin]=useIsAdmin()
+const [isAdmin,isAdminLoading]=useIsAdmin()
+const [isEmployee,isEmployeeLoading,refetch]=useEmployee()
+const [oneEmployee,isOneEmployeeLoading]=useOneEmployee()
+
+if(isEmployeeLoading ||isAdminLoading || isOneEmployeeLoading){
+ return <Loading></Loading>
+}
+else{
+  refetch()
+}
+
 const handleLogOutBtn=()=>{
   handleSignOut()
   .then(()=>{
@@ -36,23 +49,23 @@ const navItem=(
       <NavLink to="/addEmployee" className="text-sm font-semibold md:mr-6">Add Employee</NavLink>
       <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
     </>}
-{/* {isEmploye &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
-      <NavLink to="/myAssets" className="text-sm font-semibold md:mr-6">My assets</NavLink>
-      <NavLink to="/myTeam" className="text-sm font-semibold md:mr-6">My Team</NavLink>
-      <NavLink to="/myRequest" className="text-sm font-semibold md:mr-6">Requests</NavLink>
+{isEmployee &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
+      <NavLink to="/requestedAssets" className="text-sm font-semibold md:mr-6">My assets</NavLink>
+      <NavLink to="/sameTeamMember" className="text-sm font-semibold md:mr-6">My Team</NavLink>
+      <NavLink to="/requestAnAsset" className="text-sm font-semibold md:mr-6">Requests an Assets</NavLink>
       <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
-    </>} */}
+    </>}
 
 
-    {user&& isAdmin==false?<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
-      <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
-      <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
-      <NavLink to="/login" className="text-base font-semibold">Login</NavLink>
+    {user&& isAdmin==false && isEmployee==false?<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
+      <NavLink to="/register" className="text-sm font-semibold md:mr-8">Join as Employee</NavLink>
+      <NavLink to="/registerAsHr" className="text-sm font-semibold md:mr-8">Join as HR Manager</NavLink>
+      <NavLink to="/login" className="text-sm font-semibold">Login</NavLink>
     </>:<></>}
-    {!user&&<><NavLink to="/" className="text-base font-semibold md:mr-8">Home</NavLink>
-      <NavLink to="/register" className="text-base font-semibold md:mr-8">Join as Employee</NavLink>
-      <NavLink to="/registerAsHr" className="text-base font-semibold md:mr-8">Join as HR Manager</NavLink>
-      <NavLink to="/login" className="text-base font-semibold">Login</NavLink>
+    {!user&&<><NavLink to="/" className="text-sm font-semibold md:mr-8">Home</NavLink>
+      <NavLink to="/register" className="text-sm font-semibold md:mr-8">Join as Employee</NavLink>
+      <NavLink to="/registerAsHr" className="text-sm font-semibold md:mr-8">Join as HR Manager</NavLink>
+      <NavLink to="/login" className="text-sm font-semibold">Login</NavLink>
     </>}
 
 
@@ -86,7 +99,9 @@ const navItem=(
       </ul>
     </div>
   <button>
- {user&&isAdmin==false?<p title="Logo set after your HR accepts you" className="bg-gray-200 w-20 h-10 rounded-lg"><span className="loading loading-ring loading-xs mt-3"></span></p>:<img className="w-32 object-cover" src={logo} alt="" />}
+  {isEmployee&& <img className="w-24 h-16 object-cover" src={oneEmployee?.companyLogo} alt="" referrerPolicy="no-referrer"/>}
+ {user && isAdmin==false && isEmployee==false&&<p title="Logo set after your HR accepts you" className="bg-gray-200 w-20 h-10 rounded-lg"><span className="loading loading-ring loading-xs mt-3"></span></p>}
+ {!user&&<img className="w-32 object-cover" referrerPolicy="no-referrer" src={logo} alt="" />}
   </button>
   </div>
   <div className="navbar-center hidden lg:flex">

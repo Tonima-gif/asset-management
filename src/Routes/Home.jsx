@@ -1,7 +1,8 @@
-import { useContext } from "react";
 import Banner from "../Pages/Banner";
 import About from "./About";
-import { AuthContext } from "../Auth/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../Auth/AuthProvider";
+import useEmployee from "../Hooks/useEmployee";
 // import MyAssets from "../Pages/MyAssets";
 // import MyTeam from "../Pages/MyTeam";
 // import MyRequests from "../Pages/MyRequests";
@@ -9,14 +10,14 @@ import { AuthContext } from "../Auth/AuthProvider";
 
 const Home = () => {
 
-    const {user} =useContext(AuthContext)
-
+    // const {user} =useContext(AuthContext)
+const [isEmployee]=useEmployee()
     return (
         <div>
             <Banner></Banner>
             <About></About>
-            {user?.email&&<p className="text-3xl text-red-400 font-bold my-28">
-              Please wait until your HR accepts you as <br></br>its employee or Contact your HR...
+            {isEmployee==false &&<p className="text-3xl text-red-400 font-bold my-28">
+              Please wait until your HR accepts you as <br></br>an employee .... Or Contact your HR...
                 </p>}
             {/* {<><MyAssets></MyAssets>
             <MyTeam></MyTeam>
