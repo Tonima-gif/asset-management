@@ -63,16 +63,16 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 
 const peiChartData = [
-    { name: 'returnable', value: 400 },
-    { name: 'non-Returnable', value: 300 },
+    { name: 'returnable', value: 300 },
+    { name: 'non-Returnable', value: 400 },
   ];
 
     return (
         <div>
-<h1 className="text-3xl py-24 font-bold">Pending Requests..</h1>
+<h1 className="text-3xl py-16 font-bold">Pending Requests..</h1>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10">
     
-{requests.map(request=><div key={request._id} className="card bg-base-100 w-fit p-4 shadow-xl">
+{requests.map(request=><div key={request._id} className="card border-2 rounded-lg bg-base-100 w-fit p-4 shadow-xl">
   <div className="card-body">
     <img className="w-36 h-36 object-cover rounded-full border-4" src={request.itemPhoto} alt="" />
     <h2 className="card-title  text-lg font-bold">{request.itemName}</h2>
@@ -96,7 +96,7 @@ const peiChartData = [
 </div>
 
 <div>
-    <h1 className="text-3xl font-bold text-gray-600 py-16">Limited Stock Item</h1>
+    <h1 className="text-3xl font-bold pt-20 pb-16">Limited Stock Item</h1>
     <div className="collapse bg-purple-300 shadow-xl mb-10">
   <input type="checkbox" />
   <div className="collapse-title text-base font-semibold">Show Limited Stock Items</div>
@@ -163,6 +163,65 @@ const peiChartData = [
         </PieChart>
 </div>
 </div>
+
+<div className="bg-gray-950 py-10 rounded-lg mt-20">
+  <h1 className="text-4xl font-bold text-center py-3 text-white">Features</h1>
+  <p className="text-base font-semibold text-center text-gray-400">Explore the best feature.</p>
+
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5 py-10 md:px-10 lg:px-20">
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Secure Authentication</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3">Ensure only authorized HR and team members can access the system.</p>
+  </div>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-pink-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Streamlined Requests</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3">Manage employee requests for new or replacement assets efficiently.</p>
+  </div>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-purple-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Smart Categorization</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3">Easily manage returnable (laptops) and non-returnable (stationery) assets.</p>
+  </div>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-blue-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Secure Login</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3">Ensure data safety with role-based authentication.</p>
+  </div>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-red-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Simple Requests</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3">Employees can request or replace items effortlessly.</p>
+  </div>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400 w-80 h-40 rounded-xl">
+    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Anywhere, Anytime</h1>
+    <p className="text-sm text-gray-300 font-semibold text-center px-3"> Fully responsive and secure.</p>
+  </div>
+</div>
+
+</div>
+
+<div>
+  <h1 className="text-gray-900 font-bold text-center text-4xl py-20">Testimonials</h1>
+
+<div className="flex flex-col lg:flex-row justify-center items-center gap-5 mb-28">
+<div className="bg-gray-200 p-4 border-2 rounded-md">
+  <h1 className="text-black text-2xl font-bold text-center py-4">Efficiency & Organization</h1>
+  <p className="text-sm text-gray-500">This software completely transformed how we track company assets. From laptops to stationery, we now have a clear overview of everything. No more misplaced items or miscommunications its a game-changer for our HR processes </p>
+  <h4 className="text-xl text-gray-800 font-bold py-4 text-center">— HR Manager, TechCorp Inc.</h4>
+</div>
+<div className="bg-gray-200 p-4 border-2 rounded-md">
+  <h1 className="text-black text-2xl font-bold text-center py-4">Ease of Use</h1>
+  <p className="text-sm text-gray-500">The intuitive interface makes asset tracking so simple, even for non-tech-savvy HR staff. Assigning returnable and non-returnable items has never been easier, and our audits are now stress-free!
+  </p>
+  <h4 className="text-xl text-gray-800 font-bold py-4 text-center">— Operations Head, Solutions</h4>
+</div>
+<div className="bg-gray-200 p-4 border-2 rounded-md">
+  <h1 className="text-black text-2xl font-bold text-center py-4">Streamlined Management</h1>
+  <p className="text-sm text-gray-500">Managing company assets used to be a nightmare, but this software made it effortless. We can now track both returnable and non-returnable items in real time, saving hours of manual work every week.</p>
+  <h4 className="text-xl text-gray-800 font-bold py-4 text-center">— HR Specialist, InnovateTech Ltd.</h4>
+</div>
+</div>
+
+</div>
+
+
         </div>
     );
 };

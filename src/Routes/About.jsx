@@ -10,7 +10,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 const About = () => {
     return (
         <div>
-            <h1 className="text-4xl font-bold text-purple-950 py-10 text-center">About Information</h1>
+            <h1  id='about' className="text-4xl font-bold text-purple-950 py-10 text-center">About Information</h1>
             <div className='w-9/12 mx-auto h-[490px] border-2 p-8 rounded-lg overflow-y-scroll'>
 
 <h1 className="text-xl font-bold text-gray-900 py-3">About Us</h1>
@@ -40,7 +40,7 @@ A team of dedicated professionals who prioritize client satisfaction.
 We’re here to help you unlock the full potential of your assets. Let’s grow together</p>
 </div>
 
-<div className='lg:w-9/12 mx-auto'>
+<div id='pack' className='lg:w-9/12 mx-auto mb-10'>
     <h1 className="text-4xl py-12 font-bold text-gray-900">Package Details</h1>
     <Swiper
         effect={'coverflow'}
