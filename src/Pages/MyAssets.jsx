@@ -13,6 +13,7 @@ const {user}=useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [assets ,setAssets]=useState([]);
     const [search ,setSearch]=useState('');
+    const [restart ,setRestart]=useState(false);
     useEffect(()=>{
         axiosSecure.get(`/employeeRequestsAssets/${user?.email}?search=${search}`)
         .then(res=>{
@@ -22,7 +23,7 @@ const {user}=useContext(AuthContext)
           console.log(err);
         })
        
-      },[axiosSecure,search,user])
+      },[axiosSecure,search,user,restart])
    
       const handleFilter=(filter)=>{
         const data=assets.filter(asset=>asset.itemType==filter)
@@ -70,9 +71,11 @@ Swal.fire({
   });
 }
 
-const handleRequestReturn=(id)=>{
-    axiosSecure.patch(`/requestReturn/${id}`)
+const handleRequestReturn=async(id)=>{
+  setRestart(false)
+   await axiosSecure.patch(`/requestReturn/${id}`)
     .then(()=>{
+      setRestart(true)
         Swal.fire({
             title: 'Returned',
             text: "Item Returned",
@@ -130,19 +133,21 @@ const handleRequestReturn=(id)=>{
       <div>
       <h2 className="text-base font-bold my-2">{asset.itemName}</h2>
     <p className="text-base font-bold my-2">{asset.itemType}</p>
-    {asset.status==="request"?<p className="text-base text-red-400 font-bold my-2">Pending..</p>
-    :<p className="text-base font-bold my-2 text-green-400">Approved</p>
-}
+    {asset.status==="request"&&<p className="text-base text-red-400 font-bold my-2">Pending..</p>}
+    {asset.status==="approved"&&<p className="text-base text-blue-400 font-bold my-2">Approved</p>}
+    {asset.status==="rejected"&&  <p className="text-base font-bold my-2 text-yellow-300">Rejected...</p>}
+
    {asset.requestDate&& <p className="text-base font-bold my-2">{format(asset.requestDate,'dd/MM/yyyy')}</p>}
-{asset.status=='request'?<p>[ ]</p>:<p>todo</p>}
+   {asset.approvalDate&& <p className="text-base font-bold my-2">{format(asset?.approvalDate,'dd/MM/yyyy')}</p>}
+{asset.status=='request'&&<p>[ ]</p>}
+{asset.status=='rejected'&&<p>[ ]</p>}
       </div>
      </div>
         </div>
     <div className="mt-4 flex gap-4 justify-end">
     {asset.status=='approved'&&asset.itemType==='returnable'&&<button onClick={()=>handleRequestReturn(asset.itemId)} disabled={asset?.request=='returned'} className="btn bg-red-200 text-red-700">{asset?.request==='returned'?"Returned":"Return"}</button>}
-    {asset.status==='request' ?<button onClick={()=>handleRequestCancel(asset._id)} className="btn bg-purple-200">cancel</button>:
-      <Link to='/print'><button className="btn bg-green-200">p</button></Link>
-    }
+    {asset.status==='request' &&<button onClick={()=>handleRequestCancel(asset._id)} className="btn bg-purple-200">cancel</button>}
+    {asset.status==='approved' && <Link to='/print'><button className="btn bg-green-200">p</button></Link>}
   </div>
 </div>)}
 </div>

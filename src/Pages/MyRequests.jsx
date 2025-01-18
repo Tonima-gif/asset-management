@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { AuthContext } from "../Auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyRequests = () => {
 const {user}=useContext(AuthContext)
@@ -57,8 +58,9 @@ const {user}=useContext(AuthContext)
             const requesterPhoto=user?.photoURL
             const status='request'
             const requestDate=new Date()
+            const approvalDate=''
             const itemInfo={
-                itemName,itemPhoto,itemId,itemHrEmail,itemHrName,itemType,requestDate,requesterEmail,requesterName,requesterPhoto,status
+                itemName,itemPhoto,itemId,itemHrEmail,itemHrName,itemType,requestDate,approvalDate,requesterEmail,requesterName,requesterPhoto,status
             } 
              axiosSecure.post('/addRequests',itemInfo)
              .then(res=>{
@@ -71,6 +73,11 @@ const {user}=useContext(AuthContext)
 
 const handleShowModal=()=>{
  setIsOpen(false)
+  Swal.fire({
+             title: 'Request Send....',
+             text: "Wait for your HR response",
+             icon: "success"
+           });
 navigate('/requestedAssets')
 }
 

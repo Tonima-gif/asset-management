@@ -20,6 +20,7 @@ import MyRequests from "../Pages/MyRequests";
 import MyTeam from "../Pages/MyTeam";
 import MyAssets from "../Pages/MyAssets";
 import PrintPage from "./PrintPage";
+import ProfileUpdate from "./ProfileUpdate";
 
 
  export const router = createBrowserRouter([
@@ -75,6 +76,10 @@ import PrintPage from "./PrintPage";
         {
             path:"payment",
             element:<Private><Payment></Payment></Private>
+        },
+        {
+            path:"profileUpdate",
+            element:<Private><ProfileUpdate></ProfileUpdate></Private>
         },
         {
           path:'requestAnAsset',

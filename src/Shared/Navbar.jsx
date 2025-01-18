@@ -8,6 +8,7 @@ import useIsAdmin from "../Hooks/useIsAdmin";
 import useEmployee from "../Hooks/useEmployee";
 import Loading from "./Loading";
 import useOneEmployee from "../Hooks/useOneEmployee";
+import useOneHr from "../Hooks/useOneHr";
 const Navbar = () => {
 
   const {user,handleSignOut}=useContext(AuthContext)
@@ -15,7 +16,7 @@ const navigate =useNavigate()
 const [isAdmin,isAdminLoading]=useIsAdmin()
 const [isEmployee,isEmployeeLoading,refetch]=useEmployee()
 const [oneEmployee,isOneEmployeeLoading]=useOneEmployee()
-
+const [oneHr]=useOneHr()
 if(isEmployeeLoading ||isAdminLoading || isOneEmployeeLoading){
  return <Loading></Loading>
 }
@@ -47,13 +48,13 @@ const navItem=(
       <NavLink to="/allRequests" className="text-sm font-semibold md:mr-6">All Requests</NavLink>
       <NavLink to="/myEmployee" className="text-sm font-semibold md:mr-6">My Employees</NavLink>
       <NavLink to="/addEmployee" className="text-sm font-semibold md:mr-6">Add Employee</NavLink>
-      <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
+      <NavLink to="/profileUpdate" className="text-sm font-semibold md:mr-6">Profile</NavLink>
     </>}
 {isEmployee &&<><NavLink to="/" className="text-sm font-semibold md:mr-6">Home</NavLink>
       <NavLink to="/requestedAssets" className="text-sm font-semibold md:mr-6">My assets</NavLink>
       <NavLink to="/sameTeamMember" className="text-sm font-semibold md:mr-6">My Team</NavLink>
       <NavLink to="/requestAnAsset" className="text-sm font-semibold md:mr-6">Requests an Assets</NavLink>
-      <NavLink to="/myProfile" className="text-sm font-semibold md:mr-6">Profile</NavLink>
+      <NavLink to="/profileUpdate" className="text-sm font-semibold md:mr-6">Profile</NavLink>
     </>}
 
 
@@ -100,6 +101,7 @@ const navItem=(
     </div>
   <button>
   {isEmployee&& <img className="w-24 h-16 object-cover" src={oneEmployee?.companyLogo} alt="" referrerPolicy="no-referrer"/>}
+  {isAdmin&& <img className="w-24 h-16 object-cover" src={oneHr?.companyLogo} alt="" referrerPolicy="no-referrer"/>}
  {user && isAdmin==false && isEmployee==false&&<p title="Logo set after your HR accepts you" className="bg-gray-200 w-20 h-10 rounded-lg"><span className="loading loading-ring loading-xs mt-3"></span></p>}
  {!user&&<img className="w-32 object-cover" referrerPolicy="no-referrer" src={logo} alt="" />}
   </button>
