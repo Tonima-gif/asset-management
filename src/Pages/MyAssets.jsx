@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyAssets = () => {
         
@@ -92,6 +93,9 @@ const handleRequestReturn=async(id)=>{
 }
     return (
         <div>
+          <Helmet>
+    <title>My Assets</title>
+</Helmet>
         <div className="mb-36">
             <div className=" pt-28 pb-2 mb-14 lg:mx-10 flex flex-col sm:gap-y-4 md:flex-row justify-between items-center bg-white shadow-sm ">
 
@@ -147,7 +151,7 @@ const handleRequestReturn=async(id)=>{
     <div className="mt-4 flex gap-4 justify-end">
     {asset.status=='approved'&&asset.itemType==='returnable'&&<button onClick={()=>handleRequestReturn(asset.itemId)} disabled={asset?.request=='returned'} className="btn bg-red-200 text-red-700">{asset?.request==='returned'?"Returned":"Return"}</button>}
     {asset.status==='request' &&<button onClick={()=>handleRequestCancel(asset._id)} className="btn bg-purple-200">cancel</button>}
-    {asset.status==='approved' && <Link to='/print'><button className="btn bg-green-200">p</button></Link>}
+    {asset.status==='approved' && <Link to='/print'><button className="btn bg-green-200"><img src="https://img.icons8.com/?size=32&id=NfaKejBoUdem&format=gif" alt="" /></button></Link>}
   </div>
 </div>)}
 </div>

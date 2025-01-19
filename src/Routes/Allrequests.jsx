@@ -95,7 +95,7 @@ Swal.fire({
       
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-40">
        {requests.map(request=><div key={request._id} className="card z-0 bg-base-100 image-full md:w-96 shadow-xl">
-  <figure>
+  <figure className="w-full h-80 object-cover">
     <img
       src={request?.itemPhoto}
       alt="Shoes" />
