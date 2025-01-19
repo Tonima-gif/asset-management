@@ -1,8 +1,18 @@
-# React + Vite
+# Asset Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple tool for HR managers to efficiently track and manage company assets. The application helps categorize assets as returnable (e.g., laptops, keyboards) or non-returnable (e.g., pens, paper) and ensures proper allocation and tracking.
 
-Currently, two official plugins are available:
+live : https://leafy-sable-0f7ca9.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Admin : Easha Khan
+* admin email : akborkhan@gmail.com
+* password : 123456Dd
+
+# Features 
+
+1. Add and Manage Assets
+2. Assign Assets to Employees
+3. Asset Return System
+4. Stock Overview
+5. View Asset List
+6. profile update .
