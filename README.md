@@ -4,10 +4,6 @@ A simple tool for HR managers to efficiently track and manage company assets. Th
 
 live : https://leafy-sable-0f7ca9.netlify.app/
 
-* Admin : Easha Khan
-* admin email : akborkhan@gmail.com
-* password : 123456Dd
-
 # Features 
 
 1. Add and Manage Assets
