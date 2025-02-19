@@ -16,7 +16,7 @@ setEmployee(res?.data)
 },[axiosSecure,oneEmployee])
 
     return (
-        <div>
+        <div className="md:w-11/12 mx-auto">
 <h1 className="text-3xl font-bold pt-28 py-12">Employee : {employee?.length}</h1>
             <div className="overflow-x-auto border-2 rounded-md">
   <table className="table">

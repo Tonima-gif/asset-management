@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
             {/* 1 */}
-            <footer className="footer footer-center bg-purple-200 text-base-content rounded p-10">
+            <footer className="footer footer-center bg-purple-200 mt-14 text-base-content rounded p-10">
   <nav className="grid grid-flow-col gap-4">
     <a href="#about" className="link link-hover text-base font-semibold">About us</a>
     <a href="#pack" className="link link-hover  text-base font-semibold">Packages</a>

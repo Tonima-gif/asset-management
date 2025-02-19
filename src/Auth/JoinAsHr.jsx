@@ -77,7 +77,7 @@ const handleCount=(pack)=>{
     return (
         <div style={{backgroundImage:`url("${bg}")`}}>
         <h1 className="text-center text-4xl font-bold pt-24">Join as HR Manager</h1>
-         <div className="flex flex-col lg:flex-row-reverse justify-between items-center gap-10 py-5 w-full mx-auto mb-20"> 
+         <div className="flex flex-col lg:flex-row-reverse md:w-11/12 mx-auto justify-between items-center gap-10 py-5 mb-20"> 
                     <div>
         <img src={register} alt="" />
                     </div>

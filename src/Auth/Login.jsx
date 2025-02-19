@@ -66,7 +66,7 @@ handleSignIn(email,password)
         <div style={{backgroundImage:`url("${bg}")`}}>
 <h1 className="text-center text-4xl font-bold pt-20">Sign In</h1>
          
-<div className="flex flex-col lg:flex-row justify-between items-center gap-10 py-5 w-full mx-auto mb-20"> 
+<div className="flex flex-col lg:flex-row justify-between items-center md:w-11/12 mx-auto gap-10 py-5 mb-20"> 
             <div>
 <img src={login} alt="" />
             </div>

@@ -31,7 +31,7 @@ const Banner=()=> {
       >
         <SwiperSlide>
             <div style={{backgroundImage:`url(${banner1})`,backgroundSize:"cover"}}>
-            <div className='h-[530px] bg-black bg-opacity-30 py-48'>
+            <div className='h-[590px] bg-black bg-opacity-30 py-48'>
 <div className='text-center bg-black bg-opacity-80 py-8 md:px-40 rounded-md border border-white w-fit mx-auto'>
     <h1 className='text-white text-4xl font-bold py-5'>Join as an Employee</h1>
     <Link to='/register' className='text-white text-base bg-purple-800 btn px-9 border border-white font-semibold'>Join as</Link>
@@ -40,7 +40,7 @@ const Banner=()=> {
             </div>
         </SwiperSlide>
         <SwiperSlide><div style={{backgroundImage:`url(${banner2})`,backgroundSize:"cover"}}>
-            <div className='h-[530px] bg-black bg-opacity-30 py-48'>
+            <div className='h-[590px] bg-black bg-opacity-30 py-48'>
             <div className='text-center bg-black bg-opacity-80 py-8 md:px-40 rounded-md border border-white w-fit mx-auto'>
     <h1 className='text-white text-4xl font-bold py-5'>Join as HR Manager</h1>
     <Link to='/registerAsHr' className='text-white text-base bg-gray-700 btn px-9 border border-white font-semibold'>Join as</Link>

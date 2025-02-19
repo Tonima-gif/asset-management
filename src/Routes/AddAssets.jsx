@@ -49,7 +49,7 @@ axiosSecure.post('/addAsset',asset)
         <div style={{backgroundImage:`url("${bg}")`}}>
 <h1 className="text-center text-4xl font-bold pt-28">Add An Assets</h1>
          
-            <div className="lg:mr-20 card py-8 mb-36">
+            <div className=" md:w-11/12 mx-auto card py-8 mb-36">
       <form onSubmit={ handleAddAssets } className="card-body">
     <div className="flex flex-col w-full md:flex-row gap-6">
 

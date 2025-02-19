@@ -70,8 +70,8 @@ if(oneHr?.addMember>0){
 }
 
     return (
-        <div>
-            <div className='flex justify-between items-center md:mx-10 pt-28'>
+        <div className=' md:w-11/12 mx-auto'>
+            <div className='flex justify-between items-center pt-28'>
                 <p className='text-xl font-bold btn bg-slate-200'>Users : {allUser?.length}</p>
                 <div className='flex flex-col gap-y-4'>
                 <p className="text-xl font-bold btn bg-purple-100">Package Limit : {oneHr?.addMember}</p>

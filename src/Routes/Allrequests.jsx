@@ -68,7 +68,7 @@ Swal.fire({
 
 
     return (
-        <div>
+        <div className=" md:w-11/12 mx-auto">
       <div className="flex flex-col md:flex-row md:gap-16 pt-28 pb-8">
             <h1 className="text-3xl font-bold">All Requests </h1>
             <div className="flex items-center gap-3">

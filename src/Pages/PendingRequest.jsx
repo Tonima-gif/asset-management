@@ -68,13 +68,13 @@ const peiChartData = [
   ];
 
     return (
-        <div>
+        <div className="md:w-11/12 mx-auto">
 <h1 className="text-3xl py-16 font-bold">Pending Requests..</h1>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
     
 {requests.map(request=><div key={request._id} className="card border-2 rounded-lg bg-base-100 w-fit p-4 shadow-xl">
   <div className="card-body">
-    <img className="w-36 h-36 object-cover rounded-full border-4" src={request.itemPhoto} alt="" />
+    <img className="w-36 h-28 object-cover rounded-full border-4" src={request.itemPhoto} alt="" />
     <h2 className="card-title  text-lg font-bold">{request.itemName}</h2>
     <p className="text-base font-semibold">Requester : <span>{request.requesterName}</span></p>
     <p  className="text-base font-semibold">Requester : <span>{request.requesterEmail}</span></p>
@@ -85,7 +85,7 @@ const peiChartData = [
 
 
 <h1 className="text-3xl py-16 font-bold">Top Most Requests Items</h1>
-<div className="grid grid-cols-2 md:w-11/12 mx-auto md:grid-cols-4 justify-center items-center gap-5">
+<div className="grid grid-cols-2 md:grid-cols-4 justify-center items-center gap-5">
 {sortItem.map(item=><div key={item._id} className="indicator">
   <span className="indicator-item badge badge-success">{item.requestNo}</span>
   <div className="bg-base-100 shadow-lg p-3 w-60 border-4 rounded-lg place-items-center">
@@ -139,7 +139,7 @@ const peiChartData = [
   </div>
 </div>
 </div>
-<div className="flex flex-col bg-white border-2 mt-16 mb-12 rounded-lg shadow-xl md:flex-row md:w-10/12 justify-center items-center mx-auto">
+<div className="flex flex-col bg-white border-2 mt-16 mb-12 rounded-lg shadow-xl md:flex-row justify-center items-center">
  <div>
  <h1 className="text-2xl font-bold text-slate-500">Chart of total request items type</h1>
  </div>
@@ -164,34 +164,34 @@ const peiChartData = [
 </div>
 </div>
 
-<div className="bg-gray-950 py-10 rounded-lg mt-20">
-  <h1 className="text-4xl font-bold text-center py-3 text-white">Features</h1>
-  <p className="text-base font-semibold text-center text-gray-400">Explore the best feature.</p>
+<div className="">
+  <h1 className="text-4xl font-bold py-3 text-black">Features</h1>
+  <p className="text-base font-semibold text-gray-600 pb-14">Explore the best feature.</p>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5 py-10 md:px-10 lg:px-20">
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Secure Authentication</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3">Ensure only authorized HR and team members can access the system.</p>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-5">
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400 md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold text-center py-5">Secure Authentication</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3">Ensure only authorized HR and team members can access the system.</p>
   </div>
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-pink-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Streamlined Requests</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3">Manage employee requests for new or replacement assets efficiently.</p>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-pink-400  md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold  text-center py-5">Streamlined Requests</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3">Manage employee requests for new or replacement assets efficiently.</p>
   </div>
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-purple-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Smart Categorization</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3">Easily manage returnable (laptops) and non-returnable (stationery) assets.</p>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-purple-400  md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold text-center py-5">Smart Categorization</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3">Easily manage returnable (laptops) and non-returnable (stationery) assets.</p>
   </div>
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-blue-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Secure Login</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3">Ensure data safety with role-based authentication.</p>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-blue-400  md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold  text-center py-5">Secure Login</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3">Ensure data safety with role-based authentication.</p>
   </div>
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-red-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Simple Requests</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3">Employees can request or replace items effortlessly.</p>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-red-400  md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold text-center py-5">Simple Requests</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3">Employees can request or replace items effortlessly.</p>
   </div>
-  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400 w-80 h-40 rounded-xl">
-    <h1 className="text-white text-2xl font-bold shadow-md text-center py-5">Anywhere, Anytime</h1>
-    <p className="text-sm text-gray-300 font-semibold text-center px-3"> Fully responsive and secure.</p>
+  <div className="bg-gray-700 bg-opacity-5 border-2 border-green-400  md:w-96 h-44 rounded-xl">
+    <h1 className="text-gray-700 text-2xl font-bold  text-center py-5">Anywhere, Anytime</h1>
+    <p className="text-sm text-gray-500 font-semibold text-center px-3"> Fully responsive and secure.</p>
   </div>
 </div>
 

@@ -37,21 +37,6 @@ if(dollar>0){
 },[axiosSecure ,oneHr?.pack])
 
 
-// useEffect(()=>{
-// const packageMoney =oneHr?.pack
-// if(packageMoney <0){
-//   return console.log("package is 0" , packageMoney);
-// }
-// if(packageMoney==5){
-//  return setMember(5)
-// }
-// if(packageMoney==8){
-//   return setMember(10)
-// }
-// if(packageMoney==15){
-//   return setMember(20)
-// }
-// },[oneHr?.pack])
 
 const handleSubmit=async(e)=>{
     e.preventDefault();

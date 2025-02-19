@@ -30,7 +30,7 @@ updateUserProfile(name,user?.photoURl)
 }
 
     return (
-        <div className="pt-20">
+        <div className="pt-20 md:w-11/12 mx-auto">
 <h1 className="text-center py-6 text-3xl font-bold">Update Your profile</h1>
            <form onSubmit={handleUpdateProfile} className="card-body">
                <div className="flex flex-col w-full md:flex-row gap-6">

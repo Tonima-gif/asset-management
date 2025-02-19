@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      <div className='w-11/12 mx-auto'>
-        <Navbar></Navbar>
+     <Navbar></Navbar>
+      <div>
         <div className='min-h-screen'>
         <Outlet></Outlet>
         </div>

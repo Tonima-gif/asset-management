@@ -4,6 +4,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { format } from "date-fns";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import Testimonial from "../Pages/Testimonial";
 const MyMonthly = () => {
     const {user}=useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
@@ -37,8 +38,9 @@ useEffect(()=>{
 
 
     return (
-        <div>
-           <h1 className="text-3xl font-bold py-16">My Pending Requests</h1>
+      <>
+        <div className="md:w-11/12 mx-auto">
+           <h1 className="text-3xl font-bold py-14">My Pending Requests</h1>
             <div className="overflow-x-auto border-2 rounded-md">
   <table className="table">
     {/* head */}
@@ -82,7 +84,7 @@ useEffect(()=>{
   </table>
 </div> 
 
-<h1 className="text-3xl font-bold py-16">My Monthly Requests</h1>
+<h1 className="text-3xl font-bold py-14">My Monthly Requests</h1>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {month.map(item=><div key={item._id} className="bg-purple-200 border-2 border-purple-500 p-4">
         <h1 className="text-2xl font-bold">{item.itemName}</h1>
@@ -90,9 +92,9 @@ useEffect(()=>{
         <h1 className="text-base font-semibold">Request Date : {format(item.requestDate,'dd-MM-yyyy')}</h1>
     </div>)}
 </div>
-<div className="py-16">
-  
-<div className="py-8 border-4 rounded-lg flex flex-col lg:flex-row gap-10 md:gap-20 justify-center items-center">
+<div className="py-24">
+
+<div className="py-8 border-4 rounded-lg flex flex-col lg:flex-row gap-10 md:gap-48 justify-center items-center">
   <div>
     <h1 className="text-3xl font-bold">Calender</h1>
     <p className="text-sm font-semibold py-2 text-gray-600">Choose your current date</p>
@@ -101,15 +103,17 @@ useEffect(()=>{
 </div>
 </div>
 
-<div>
-  <div className="py-10 mb-16 md:px-16 bg-slate-200 border-2 rounded-xl">
+<div className="pb-20">
+  <div className="py-10 md:px-16 bg-slate-200 border-2 rounded-xl">
     <img className="w-16 mx-auto" src="https://img.icons8.com/?size=48&id=qG05IuQtGU57&format=gif" alt="" />
     <h1 className="text-3xl font-bold pt-2 text-gray-900 text-center">General Announcement</h1>
-    <p className="text-sm font-semibold text-center py-3">This is to inform all employees that the office will remain closed on [25/1/2025] due to [vacation]. <br></br>Normal operations will resume on [3/2/2025]. Please plan accordingly.</p>
+    <p className="text-sm font-semibold text-center py-3">This is to inform all employees that the office will remain closed on [25/3/2025] due to [vacation]. <br></br>Normal operations will resume on [4/4/2025]. Please plan accordingly.</p>
   </div>
 </div>
 
         </div>
+        <Testimonial></Testimonial>
+      </>
     );
 };
 

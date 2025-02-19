@@ -76,7 +76,7 @@ const navItem=(
 
     return (
         <div>
-           <div className="navbar bg-white shadow-xl rounded-b-md fixed z-10 w-full md:w-11/12 mx-auto">
+           <div className="navbar bg-white shadow-xl rounded-b-md fixed z-10 md:px-16 bg-opacity-90">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -100,10 +100,10 @@ const navItem=(
       </ul>
     </div>
   <button>
-  {isEmployee&& <img className="w-24 h-16 object-cover" src={oneEmployee?.companyLogo} alt="" referrerPolicy="no-referrer"/>}
-  {isAdmin&& <img className="w-24 h-16 object-cover" src={oneHr?.companyLogo} alt="" referrerPolicy="no-referrer"/>}
+  {isEmployee&& <img className="w-24 h-16 object-cover" src={oneEmployee?.companyLogo} alt="company logo" referrerPolicy="no-referrer"/>}
+  {isAdmin&& <img className="w-24 h-16 object-cover" src={oneHr?.companyLogo} alt="company logo" referrerPolicy="no-referrer"/>}
  {user && isAdmin==false && isEmployee==false&&<p title="Logo set after your HR accepts you" className="bg-gray-200 w-20 h-10 rounded-lg"><span className="loading loading-ring loading-xs mt-3"></span></p>}
- {!user&&<img className="w-32 object-cover" referrerPolicy="no-referrer" src={logo} alt="" />}
+ {!user&&<img className="w-32 object-cover" referrerPolicy="no-referrer" src={logo} alt="company logo" />}
   </button>
   </div>
   <div className="navbar-center hidden lg:flex">

@@ -96,8 +96,8 @@ const handleRequestReturn=async(id)=>{
           <Helmet>
     <title>My Assets</title>
 </Helmet>
-        <div className="mb-36">
-            <div className=" pt-28 pb-2 mb-14 lg:mx-10 flex flex-col sm:gap-y-4 md:flex-row justify-between items-center bg-white shadow-sm ">
+        <div className="mb-36 md:w-11/12 mx-auto">
+            <div className=" pt-28 pb-2 mb-14 flex flex-col sm:gap-y-4 md:flex-row justify-between items-center bg-white shadow-sm ">
 
             <h1 className="text-3xl font-bold">All Asset : {assets.length}</h1>
             <div className="lg:w-1/4">
