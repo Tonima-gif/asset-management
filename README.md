@@ -7,15 +7,15 @@ live : https://leafy-sable-0f7ca9.netlify.app/
 # Introduction
 The Asset Management System helps HR managers track employee asset usage, categorized into returnable (e.g., laptops, keyboards) and non-returnable (e.g., pens, paper).
 
-Features
-✅ Employee asset tracking
-✅ Asset categorization (returnable & non-returnable)
-✅ Assign & return assets
-✅ Real-time status updates
-✅ User roles & permissions (HR, Employee)
+# Features
+✅ Employee asset tracking<br>
+✅ Asset categorization (returnable & non-returnable)<br>
+✅ Assign & return assets<br>
+✅ Real-time status updates<br>
+✅ User roles & permissions (HR, Employee)<br>
 ✅ View Asset List
 
-Tech Stack
+# Tech Stack
 Frontend: React, JavaScript, Tailwind CSS
 Backend: Node.js, Express.js
 Database: MongoDB 
@@ -44,8 +44,9 @@ Generate reports for asset usage.
 
 * HR Email :  akborkhan@gmail.com
 * Hr Password : 123456Dd
-Contact
-📧 Email: eashakhan000@gmail.com
+
+Contact Info<br>
+📧 Email: eashakhan000@gmail.com<br>
 🔗 Phone: 01622990670
 
 
