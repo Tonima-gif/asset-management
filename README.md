@@ -46,7 +46,7 @@ Generate reports for asset usage.
 * Hr Password : 123456Dd
 
 Contact Info<br>
-📧 Email: eashakhan000@gmail.com<br>
+📧 Email: tonimatajrin85@gmail.com<br>
 🔗 Phone: 01622990670
 
 
