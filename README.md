@@ -26,7 +26,7 @@ State Management: Redux (if needed)
 bash
 
 # Clone the repository
-git clone https://github.com/Easha-gif/asset-management.git
+git clone https://github.com/Tonima-gif/asset-management.git
 
 # Navigate to the project folder
 cd asset-management
